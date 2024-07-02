@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Component")]
     [SerializeField] CharacterController controller;
+    [SerializeField] Animator animator;
 
     [Header("Spec")]
     [SerializeField] float moveSpeed;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(transform.right * moveDir.x * moveSpeed * Time.deltaTime);
 		controller.Move(transform.forward * moveDir.z * moveSpeed * Time.deltaTime);
+        animator.SetFloat("MoveSpeed", moveDir.magnitude * moveSpeed);
 	}
 
     private void JumpMove()
