@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [Header("Component")]
     [SerializeField] CharacterController controller;
     [SerializeField] Animator animator;
+    [SerializeField] WeaponHolder weaponHolder;
 
     [Header("Spec")]
     [SerializeField] float moveSpeed;
@@ -98,6 +99,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
+        weaponHolder.Fire();
         animator.SetTrigger("Fire");
     }
 
