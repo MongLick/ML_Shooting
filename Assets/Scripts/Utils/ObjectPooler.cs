@@ -9,13 +9,8 @@ public class ObjectPooler : MonoBehaviour
 
     private Stack<PooledObject> objectPool;
 
-	private void Awake()
+	public void CreatePool(PooledObject prefab, int size)
 	{
-        CreatePool();
-	}
-
-	public void CreatePool()
-    {
         objectPool = new Stack<PooledObject>(poolSize);
         for(int i = 0; i < poolSize; i++)
         {
@@ -27,8 +22,8 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public PooledObject GetPool()
-    {
+    public PooledObject GetPool(Vector3 position, Quaternion rotation)
+	{
         if (objectPool.Count > 0)
         {
 			PooledObject instance = objectPool.Pop();
